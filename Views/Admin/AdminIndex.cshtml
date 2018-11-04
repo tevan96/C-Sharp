@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GussmannTechnologyWebsite.Models.HomeTbl>
+
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home Preview</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddImageHome")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Image
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in ViewBag.Image) {
+    <tr>
+        <td style="width:50%;">
+                <img src="@Url.Content(@item.ImagePath)" style="width:100%; height:40%;" />
+        </td>
+        <td>
+            @item.Size %
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = @item.HomeID }) <br />
+            @Html.ActionLink("Details", "Details", new { id = @item.HomeID }) <br />
+            @Html.ActionLink("Delete", "DeleteImageHome", new { id = @item.HomeID })
+        </td>
+    </tr>
+}
+
+</table>

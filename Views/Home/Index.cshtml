@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+</br>
+@if (ViewBag.Image != null)
+{
+
+    foreach (var item in ViewBag.Image)
+    {
+        if (item.ImagePath != null)
+        {
+            if (item.Size == 100)
+            {
+                <div class="col-md-12">
+                    <img src="@Url.Content(@item.ImagePath)" style="width:100%;" />
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6">
+                    <img src="@Url.Content(@item.ImagePath)" style="width:100%;" />
+                </div>
+            }
+        }
+        @*else
+        {
+            if (item.Size == 100)
+            {
+                <div class="col-md-12">
+                        
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6">
+                    <img src="@Url.Content(@item.ImagePath)" style="width:100%;" />
+                </div>
+            }
+        }*@
+
+
+    }
+}
+
+
